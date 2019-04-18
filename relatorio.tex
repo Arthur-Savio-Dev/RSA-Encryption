@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{RSA - Criptografia}
+\author{Arthur Sávio Bernardo de Melo }
+\date{Abril 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Introdução}
+Esse sistema é uma implementação da criptografia Rsa, uma criptografia assimétrica, que utiliza duas chaves: pública e privada.
+
+Linguagem utilizada: Python
+
+Banco de dados: Mysql
+
+\section{Rsa - Funcionamento}
+Dentro do sistema o usuário poderá obter chaves para a criptografia. As chaves podem ser geradas randomicamente pelo sistema, num intervalo (10, 100), ou poderão ser informadas pelo usuário. As chaves são exibidas ao usuário após as operações. Ambas as chaves são geradas com base na multiplicação de dois números primos.
+
+No menu principal, além da geração de chaves, há a possibilidade de criptografar ou descriptografar mensagens. Ambas as funções necessitam das chaves e da mensagem para realizar as operações, sendo a mensagem da descriptografia composta apenas por números e a da criptografia por caracteres UTF-8. Ambas as especificações são checadas pelo sistema. Além disso, para criptografar, o usuário precisaŕa realizar um cadastro, que fará a composição do banco de dados do sistema que armazena os usuários de maneira criptografada.
+
+Ao rodar o sistema automaticamente é lido da base de dados todos os usuários e depois de descriptografados ocorre o "load dos usuários", onde são gerados objetos armazenando suas informações, disponíveis para consultas e exibições.
+
+\section{Sistema de Usuários}
+O sistema de usuários é bem simples. Há a possibilidade de adicionar o usuário, quando se é realizado a criptografia. A verificação de existência ocorre em boa parte do sistema de usuários. Ela é utilizada pra evitar dois usuários iguais no sistema, para verificar se é ou não possível excluir um usuário.
+
+\end{document}
