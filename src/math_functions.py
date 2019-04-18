@@ -11,8 +11,5 @@ class MathFunctions:
             if (i*e) % totiente == 1:
                 return i
 
-    def generate_random_prime_numbers(self):
-            p = sympy.randprime(100, 1000)
-            q = sympy.randprime(100, 1000)
-            e = sympy.randprime(100, 1000)
-            return p, q, e
+    def generate_random_prime_number(self):
+            return sympy.randprime(10, 100)

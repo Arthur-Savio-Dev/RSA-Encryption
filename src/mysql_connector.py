@@ -26,26 +26,21 @@ class Mysql:
         except mysql.connector.Error as err:
             print('ERROR in select table {}'.format(err))
 
-    def select_user(self, login):
+    def select_login(self):
         try:
-            query = 'SELECT * FROM rsa_user_datas WHERE login = ' + login
+            query = 'SELECT login, public_key, private_key FROM rsa_user_datas'
             self.mycursor.execute(query)
-            return self.mycursor.fetchone()
+            return self.mycursor.fetchall()
         except mysql.connector.Error as err:
             print('ERROR in select user {}'.format(err))
 
-    def existing_user_in_table(self, login):
-        query = 'SELECT (SELECT COUNT(*) FROM rsa_user_datas WHERE login = ' + login + ') > 0'
-        if self.mycursor.execute(query):
-            return True
-        return False
-
-    def update_text(self, login, new_text):
+    def delete_user_table(self, login):
         try:
-            query = 'UPDATE rsa_user_datas SET text = ' + new_text + 'WHERE login = ' + login
+            query = 'DELETE FROM rsa_user_datas WHERE login = "' + login + '"'
             self.mycursor.execute(query)
+            self.commit_table()
         except mysql.connector.Error as err:
-            print('ERROR in update text {}'.format(err))
+            print('ERROR in delete user {}'.format(err))
 
     def commit_table(self):
         try:
