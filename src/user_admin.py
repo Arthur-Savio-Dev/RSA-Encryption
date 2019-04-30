@@ -57,6 +57,8 @@ class UserAdmin:
 
     def print_users(self):
         print('-   USERS   -')
+        if len(self.all_users) == 0:
+            print("\n - Haven't Users. - \n")
         for user in self.all_users:
             print('User: ', user.login)
             print('Text: ', user.text, '\n')
